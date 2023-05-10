@@ -1,23 +1,50 @@
 {
-  "name": "better-date-picker",
+  "name": "@fullstacksjs/react-date-picker",
+  "private": false,
   "version": "0.0.0",
-  "description": "",
-  "main": ".eslintrc.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
   },
-  "keywords": [],
-  "author": "Alireza Safaried <frontendmonster@gmail.com>",
-  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:lib": "tsc && vite build",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix",
+    "format:prettier": "prettier --write \"src/**/*.{ts,tsx,js,mdx}\"",
+    "test": "vitest",
+    "test:cov": "vitest run --coverage",
+    "prepare": "husky install",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@fullstacksjs/eslint-config": "9.3.1",
     "@fullstacksjs/tsconfig": "1.0.0",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "@vitejs/plugin-react": "4.0.0",
     "cspell": "6.31.1",
     "eslint": "8.40.0",
     "husky": "^8.0.0",
     "lint-staged": "13.2.2",
     "prettier": "2.8.8",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "2.3.0",
+    "vitest": "0.31.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

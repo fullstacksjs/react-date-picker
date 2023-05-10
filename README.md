@@ -1,1 +1,1 @@
-## Better React Date
+## FullstacksJS React Date Picker

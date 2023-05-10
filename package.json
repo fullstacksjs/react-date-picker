@@ -15,13 +15,14 @@
     "dist"
   ],
   "scripts": {
+    "dev": "storybook dev -p 6006",
     "build:lib": "tsc && vite build",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix",
-    "format:prettier": "prettier --write \"src/**/*.{ts,tsx,js,mdx}\"",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "prepare": "husky install",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
+    "build-storybook": "storybook build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -30,6 +31,13 @@
   "devDependencies": {
     "@fullstacksjs/eslint-config": "9.3.1",
     "@fullstacksjs/tsconfig": "1.0.0",
+    "@storybook/addon-essentials": "7.0.10",
+    "@storybook/addon-interactions": "7.0.10",
+    "@storybook/addon-links": "7.0.10",
+    "@storybook/blocks": "7.0.10",
+    "@storybook/react": "7.0.10",
+    "@storybook/react-vite": "7.0.10",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@vitejs/plugin-react": "4.0.0",
@@ -38,6 +46,8 @@
     "husky": "^8.0.0",
     "lint-staged": "13.2.2",
     "prettier": "2.8.8",
+    "prop-types": "15.8.1",
+    "storybook": "7.0.10",
     "typescript": "5.0.4",
     "vite": "4.3.5",
     "vite-plugin-dts": "2.3.0",
